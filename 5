@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+int main(){
+	int t;
+	cin >> t;
+	while (t--){
+		int check=0;
+		int n; cin >> n;
+		int cnt=0;
+		for (int i=2;i*i<=n;i++){
+			int dem=0;
+			if (n%i==0) cnt++;
+			while (n%i==0){
+				n/=i;
+				dem++;
+				if (dem>1) break;
+			}
+			if (dem>1){
+				check=1;
+				break;
+			}
+		}
+		if (n>1) cnt++;
+		if (cnt==3 && check==0) cout << "1";
+		else cout << "0";
+		cout << "\n" ;
+	}
+}
