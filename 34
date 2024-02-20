@@ -1,0 +1,35 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <cmath>
+#include <algorithm>
+using namespace std;
+long long gcd (long long a, long long b){
+	if (b==0) return a;
+	return gcd (b,a%b);
+}
+int main(){
+    int t;
+    cin >> t;
+    while (t--){
+    	int n;
+    	cin >> n ;
+    	long long a[n+1];
+    	for (int i=0;i<n;i++) cin >> a[i];
+    	long long x=pow(10,9);
+    	x+=7;
+    	long long y=a[0];
+    	for (int i=1;i<n;i++){
+    		y=gcd(y,a[i]);
+		}
+    	long long res=1;
+    	for (int i=0;i<n;i++){
+    		res=(res*a[i])%x;
+		}
+		int z=res;
+		for (int i=2;i<=y;i++){
+			res=(res*z)%x;
+		}
+		cout << res << "\n";
+	}
+}
