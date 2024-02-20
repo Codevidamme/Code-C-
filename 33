@@ -1,0 +1,27 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+using namespace std;
+using ll = long long;
+long long gcd (long long a, long long b){
+	if (b==0) return a;
+	return gcd(b,a%b);
+}
+int main(){
+	int t;
+	cin >> t;
+	while(t--){
+		ll n,m;
+		cin >> n >> m;
+		ll sum=0;
+		for (int i=1;i<=n;i++) sum+=i;
+		ll x=(sum+m)/2;
+		if (x*2-m!=sum) cout << "No";
+		else {
+			ll y=sum-x;
+			if (gcd(x,y)==1 && x-y==m) cout << "Yes";
+			else cout << "No";
+		}
+		cout << "\n";
+	}
+}
