@@ -1,0 +1,11 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    double a,b;
+    char c;
+    cin>>a>>c>>b;
+    if (c=='+')cout<< setprecision(2)<<fixed<<a+b<<endl;
+    else if (c=='-') cout << setprecision(2) <<fixed <<a-b <<endl;
+    else if (c=='*') cout << setprecision(2) <<fixed <<a*b <<endl;
+    else if (c=='/') cout << setprecision(2) <<fixed <<a/b <<endl;
+}
