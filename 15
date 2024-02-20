@@ -1,0 +1,33 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
+using namespace std;
+int prime (int n){
+	if (n<2) return 0;
+	if (n==2) return 1;
+	for (int i=2;i*i<=n;i++){
+		if (n%i==0) return 0;
+	}
+	return 1;
+}
+int sumdig (long long n){
+	int sum=0;
+	while (n>0){
+		int i=n%10;
+		sum+=i;
+		n/=10;
+	}
+	return sum;
+}
+int main(){
+    int t;
+    cin >> t;
+    while (t--){
+    	long long n;
+    	cin >> n;
+    	int x=sumdig(n);
+    	if (prime(x)==1) cout << n;
+    	else cout << "-1";
+    	cout << "\n";
+	}
+}
