@@ -1,0 +1,29 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while (t--){
+        double dem=0;
+        int code=0,i;
+        cin >>code;
+        if (code == 101){
+            string D="A B B A D C C A B D C C A B D",E;
+            getline(cin,E);
+            for (i=0;i<D.size();i+=2){
+                if (E[i+1]>='a' && E[i+1]<='z')E[i+1]-=32;
+                if (E[i+1]==D[i])dem++;
+            }
+        }
+        else{
+            string D="A	C C A B C D D B B C D D B B",E;
+            getline(cin,E);
+            for (i=0;i<D.size();i+=2){
+                if (E[i+1]>='a' && E[i+1]<='z')E[i+1]-=32;
+                if (E[i+1]==D[i])dem++;
+            }
+        }
+        cout << setprecision(2)<<fixed <<(dem*10/15)<<endl;
+    }
+}
