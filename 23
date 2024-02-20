@@ -1,0 +1,17 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <cmath>
+int main(){
+    int t;
+    cin >> t;
+    while (t--){
+    	int n;
+    	cin >> n;
+    	double sum = 0;
+    	for (int i=1;i<=n;i++){
+    		sum = (double)sqrt(sum)+i;
+		}
+		cout << setprecision(5) << fixed << sqrt(sum) << "\n";
+	}
+}
