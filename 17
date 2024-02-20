@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+long long sum (long long n){
+    long long x=0;
+	while (n>0){
+		long long i=n%10;
+		x+=i;
+		n/=10;
+	}
+	return x;
+}
+long long gcd (long long a, long long b){
+	if (b==0) return a;
+	return gcd (b,a%b);
+}
+int main(){
+	int t; cin >> t;
+	while (t--){
+		long long n;
+		cin >> n;
+		while (gcd (n,sum(n))<2){
+			n++;
+		}
+		cout << n << "\n";
+	}
+}
