@@ -1,0 +1,11 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
+using namespace std;
+int main(){
+    int C;
+    cin >> C;
+    double F = (double)C*9/5;
+    F+=32;
+    cout << setprecision(2) << fixed << F;
+}
