@@ -1,0 +1,47 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+#define sz 100001
+int maxx (int a[], int n){
+	int max=a[0];
+	for (int i=1;i<n;i++){
+		if (a[i]>max) max=a[i];
+	}
+	return max;
+}
+int main(){
+	int t;
+	cin >> t;
+	while (t--){
+		int n;
+	    cin >> n;
+	    int a[n+1][n+1];
+	    for (int i=0;i<n;i++){
+		    for (int j=0;j<n;j++) cin >> a[i][j];
+	    }
+	    int b[n+1][n+1];
+	    for (int i=0;i<n;i++){
+		    for (int j=0;j<n;j++) b[j][i] = a[i][j];
+	    }
+	    int tmp1[n+1],tmp2[n+1];
+	    for (int i=0;i<n;i++){
+	    	int sum = 0;
+		    for (int j=0;j<n;j++) sum += a[i][j];
+		    tmp1[i] = sum;
+	    }
+	    for (int i=0;i<n;i++){
+	    	int sum=0;
+		    for (int j=0;j<n;j++) sum += b[i][j];
+		    tmp2[i] = sum;
+	    }
+	    int x1 = maxx(tmp1,n);
+	    int x2 = maxx(tmp2,n);
+	    int res = max(x1,x2);
+	    int cnt=0;
+	    for (int i=0;i<n;i++){
+	    	int k = res - tmp1[i];
+	    	cnt+=k;
+		}
+	    cout << cnt << "\n";
+	}
+}
