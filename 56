@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+using ll = long long;
+int res (int n){
+	int sum = 0;
+	while (n>0){
+		int i = n%10;
+		sum += i;
+		n /= 10;
+	}
+	return sum;
+}
+int main (){
+	int t;
+	cin >> t;
+	while (t--){
+		string s;
+		cin >> s;
+		int n = s.size();
+		int array[n+1];
+		int sum=0;
+		for (int i=0;i<n;++i) array[i] = s[i] - '0';
+		for (int i=0;i<n;i++) sum += array[i];
+		while (sum>9){
+			sum = res (sum);
+		}
+		if (sum == 9) cout << "1";
+		else cout << "0";
+		cout << "\n";
+	}
+}
