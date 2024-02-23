@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+	int t; cin >> t;
+	int cnt = 1;
+	while (t--){
+		int m ,n ,p;
+ 	    cin >> m >> n >> p;
+	    int a[m],b[n];
+	    for (int i=0;i<m;i++) cin >> a[i];
+	    for (int i=0;i<n;i++) cin >> b[i];
+	    int c[m+n];
+	    for (int i=0;i<p;i++) c[i]=a[i];
+	    int x=0;
+	    for (int i=p;i<p+n;i++) c[i]=b[x++];
+	    int y=p;
+	    for (int i=p+n;i<m+n;i++) c[i]=a[y++];
+	    cout << "Test " << cnt << ":\n";
+	    for (int i=0;i<m+n;i++) cout << c[i] << " ";
+	    cnt++;
+	    cout << "\n";
+	}
+}
