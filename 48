@@ -1,0 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+	int m ,n ,p;
+	cin >> m >> n >> p;
+	int a[m][n];
+	for (int i=0;i<m;i++){
+		for (int j=0;j<n;j++) cin >> a[i][j];
+	}
+	int b[m];
+	for (int i=0;i<m;i++) b[i] = a[i][p-1];
+	sort (b,b+m);
+	for (int i=0;i<m;i++) a[i][p-1] = b[i];
+	for (int i=0;i<m;i++){
+		for (int j=0;j<n;j++) cout << a[i][j] << " ";
+		cout << "\n";
+	}
+}
