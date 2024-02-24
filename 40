@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+	int t;
+	cin >> t;
+	while (t--){
+		int m,n,p;
+		cin >> m >> n >> p;
+		int a[m][n];
+		int array[m*n+1];
+		for (int i=0;i<m;i++){
+			for (int j=0;j<n;j++) cin >> a[i][j];
+		}
+		int i=0;
+		int x=0;
+		while (i<m/2){
+			for (int j=i;j<n-1-i;j++) array[x++] = a[i][j];
+			for (int j=i;j<m-1-i;j++) array[x++] = a[j][n-1-i];
+			for (int j=n-1-i;j>i;j--) array[x++] = a[m-1-i][j];
+			for (int j=m-1-i;j>i;j--) array[x++] = a[j][i];
+			i++;
+		}
+		cout << array[p-1];
+		cout << "\n";
+	}
+}
